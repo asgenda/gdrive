@@ -1,15 +1,16 @@
-library(googledrive)
+# Vary the ethnicities picked
 
-#drive_download(as_id("1bfCl7VPwU0_4XTol1PR0J1Cl1NvrUhy9"),overwrite=TRUE) #1000genomes.Rdata
-load("pop_gen_sample.RData")
-
-
-source("adam-eth-fun.R") # initialize functions created from rafa's code
-
-eth_setup() # This takes a long time due to the tabs step; comment this out once initialized
-
-# Create a random sample of ethnicities and test the generalized ethnicity graph function
+# Create a random sample of ethnicities
 unipop <- unique(pop_sample)
 unipop_sample <- sample(unipop, sample(3:5, 1))
-eth_to_plots(unipop_sample,n_snp = 600)
+#eth_to_plots(unipop_sample,n_snp = 600) #Test the generalized function
+
+
+# Vary the number of SNPs used
+
+# Creating the vector
+snpnum <- seq(1000, 100, by = -100)
+
+# Evaluating the function at each level of snpnum
+results <- lapply(snpnum, function(x) eth_to_plots(unipop_sample, n_snp = x))
 

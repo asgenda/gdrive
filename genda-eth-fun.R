@@ -120,6 +120,8 @@ eth_to_plots <- function(ethnicities, n_snp = 600) {
   ggsave(paste0(new_folder_path,"/group_box.png"), plot_box,width=16 , height=10 , dpi=300) # set width to 49 to vis all eth
   ggsave(paste0(new_folder_path,"/group_scatter.png"), plot_scatter,width=12 , height=12 , dpi=300)
   
+  print(plot_scatter)
+  
   rm(plot_scatter)
   rm(plot_box)
   
