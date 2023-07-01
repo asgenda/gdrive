@@ -9,3 +9,8 @@ load("1000genomes.Rdata")
 
 drive_download(as_id("1oXdOYjUbz25H7NWJJX2Y-ypCPzxhHvQ2"),overwrite=TRUE) #brain_subset_metadata.csv
 brain_subset_metadata <- read_csv("brain_subset_metadata.csv")
+
+
+drive_download(as_id("1bfCl7VPwU0_4XTol1PR0J1Cl1NvrUhy9"),overwrite=TRUE) #pop_gen_sample.Rdata
+load("pop_gen_sample.RData")
+
