@@ -67,7 +67,7 @@ eth_to_plots <- function(ethnicities, n_snp = 600) {
   ind <- match(main_pops, dimnames(tabs)[[3]])
   
   x <- tabs[1, ,ind]
-  n_locs <- round(n_snp/6) 
+  n_locs <- round(n_snp) 
   
   up <- sapply(1:length(main_pops), function(i){
     order(rowMeans(x[,-i]) - x[,i], decreasing = TRUE)[1:n_locs]
@@ -117,11 +117,17 @@ eth_to_plots <- function(ethnicities, n_snp = 600) {
   }
   
   
-  ggsave(paste0(new_folder_path,"/group_box.png"), plot_box,width=16 , height=10 , dpi=300) # set width to 49 to vis all eth
+  ggsave(paste0(new_folder_path,"/group_box.png"), plot_box,width=49 , height=10 , dpi=300) # set width to 49 to vis all eth
   ggsave(paste0(new_folder_path,"/group_scatter.png"), plot_scatter,width=12 , height=12 , dpi=300)
   
+  # Minor additions to answer questions
   print(plot_scatter)
+  print(plot_box)
+  score_sep <<- score
+  pop_sample_sep <<- pop_sample
+  keep_sep <<- keep
   
+  # Clean vars
   rm(plot_scatter)
   rm(plot_box)
   
