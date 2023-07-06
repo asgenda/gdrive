@@ -93,6 +93,14 @@ eth_to_plots <- function(ethnicities, n_snp = 600) {
     facet_wrap(~name)
   
   
+  # Minor additions to answer questions
+  print(plot_scatter)
+  print(plot_box)
+  score_sep <<- score
+  pop_sample_sep <<- pop_sample
+  keep_sep <<- keep
+  
+  
   # Format output folder name
   folder_name_base <- paste("output-eth-to-plots/", n_snp , "-", paste(ethnicities,collapse="-"), sep="")
   
@@ -117,16 +125,10 @@ eth_to_plots <- function(ethnicities, n_snp = 600) {
   }
   
   
-  ggsave(paste0(new_folder_path,"/group_box.png"), plot_box,width=49 , height=10 , dpi=300) # set width to 49 to vis all eth
+  ggsave(paste0(new_folder_path,"/group_box.png"), plot_box,width=15 , height=10 , dpi=300) # set width to 49 to vis all eth
   ggsave(paste0(new_folder_path,"/group_scatter.png"), plot_scatter,width=12 , height=12 , dpi=300)
   
-  # Minor additions to answer questions
-  print(plot_scatter)
-  print(plot_box)
-  score_sep <<- score
-  pop_sample_sep <<- pop_sample
-  keep_sep <<- keep
-  
+
   # Clean vars
   rm(plot_scatter)
   rm(plot_box)
